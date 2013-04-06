@@ -5,6 +5,7 @@ import org.specs2.mutable.Specification
 class BoardBuilderSpec extends Specification {
 
   "board builder" should {
+    
     "create board with nonempty field list" in {
       val builder = new BoardBuilder
 
@@ -12,6 +13,7 @@ class BoardBuilderSpec extends Specification {
 
       board.fields must not be empty
     }
+    
   }
 
 }
