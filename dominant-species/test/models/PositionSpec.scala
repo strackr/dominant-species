@@ -39,8 +39,8 @@ class PositionSpec extends Specification {
         new Position(6, 3, 3) -> 2)
 
       positions foreach {
-        case ((position, distance)) =>
-          (s"distance from $centerPosition to $position is equal to $distance") >> {
+        case (position, distance) =>
+          s"distance from $centerPosition to $position is equal to $distance" >> {
             val evaluatedDistance = centerPosition.getDistance(position)
 
             evaluatedDistance must beEqualTo(distance)
