@@ -1,8 +1,8 @@
 package models
 
-import org.specs2.mutable.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
-class AnimalSpec extends Specification {
+class AnimalSpec extends SpecificationWithJUnit {
 
   type ElementMap = Map[ElementType, Int]
 

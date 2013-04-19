@@ -1,8 +1,8 @@
 package models
 
-import org.specs2.mutable.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
-class PositionFactorySpec extends Specification {
+class PositionFactorySpec extends SpecificationWithJUnit {
 
   "position factory" should {
 

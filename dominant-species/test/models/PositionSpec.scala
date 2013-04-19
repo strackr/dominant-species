@@ -1,8 +1,8 @@
 package models
 
-import org.specs2.mutable.Specification
+import org.specs2.mutable.SpecificationWithJUnit
 
-class PositionSpec extends Specification {
+class PositionSpec extends SpecificationWithJUnit {
 
   "position" should {
 
