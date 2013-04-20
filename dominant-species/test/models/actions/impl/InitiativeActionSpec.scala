@@ -3,7 +3,7 @@ package models.actions.impl
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationWithJUnit
 
-import models.AbundanceAction
+import models.AdaptationAction
 import models.ActionReservation
 import models.AnimalType
 import models.Game
@@ -54,8 +54,8 @@ class InitiativeActionSpec extends SpecificationWithJUnit with Mockito {
 
       val availableActions = Set(
         ActionReservation(InitiativeAction),
-        ActionReservation(AbundanceAction, 0),
-        ActionReservation(AbundanceAction, 1))
+        ActionReservation(AdaptationAction, 0),
+        ActionReservation(AdaptationAction, 1))
       val gameId = GameId(123L)
       val game = mock[Game]
       game.id returns gameId
@@ -78,7 +78,7 @@ class InitiativeActionSpec extends SpecificationWithJUnit with Mockito {
 
   "select action handler" should {
 
-    val availableActions = Set(ActionReservation(AbundanceAction, 1))
+    val availableActions = Set(ActionReservation(AdaptationAction, 1))
     val gameId = GameId(123L)
     val game = mock[Game]
     game.id returns gameId
@@ -90,7 +90,7 @@ class InitiativeActionSpec extends SpecificationWithJUnit with Mockito {
       val actionManager = mock[ActionManager]
       val selectHandler = new SelectActionFromInitiativeHandler(actionManager)
 
-      val availableReservation = ActionReservation(AbundanceAction, 1)
+      val availableReservation = ActionReservation(AdaptationAction, 1)
 
       // when
       selectHandler.execute(game, playerType, availableReservation)
@@ -104,7 +104,7 @@ class InitiativeActionSpec extends SpecificationWithJUnit with Mockito {
       val actionManager = mock[ActionManager]
       val selectHandler = new SelectActionFromInitiativeHandler(actionManager)
 
-      val unavailableReservation = ActionReservation(AbundanceAction, 0)
+      val unavailableReservation = ActionReservation(AdaptationAction, 0)
 
       // when
       lazy val actionExecution = {
