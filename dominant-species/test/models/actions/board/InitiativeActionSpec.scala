@@ -1,10 +1,10 @@
-package models.actions.impl
+package models.actions.board
 
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationWithJUnit
 
-import models.AdaptationAction
 import models.ActionReservation
+import models.AdaptationAction
 import models.AnimalType
 import models.Game
 import models.GameId

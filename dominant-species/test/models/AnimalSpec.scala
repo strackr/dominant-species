@@ -27,6 +27,25 @@ class AnimalSpec extends SpecificationWithJUnit {
       }
     }
 
+    "evaluate number of elements" >> {
+      val settings = List[(ElementMap, Int)](
+        (Map(), 0),
+        (Map(Grass -> 1), 1),
+        (Map(Grass -> 1, Grub -> 2), 3))
+
+      settings foreach {
+        case (elements, correctElementsNumber) => {
+          s"number of elements in $elements is equal to $correctElementsNumber" >> {
+            val animal = new Animal(null, elements, 0, 0)
+
+            val elementsNumber = animal.elementsNumber
+
+            elementsNumber must beEqualTo(correctElementsNumber)
+          }
+        }
+      }
+    }
+
   }
 
 }

@@ -1,4 +1,4 @@
-package models.actions.impl
+package models.actions.board
 
 import models.ActionReservation
 import models.AnimalType
