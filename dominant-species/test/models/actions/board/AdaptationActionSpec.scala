@@ -22,8 +22,7 @@ class AdaptationActionSpec extends SpecificationWithJUnit with Mockito {
       val initiativeHandler = new AdaptationActionHandler
 
       val animal = mock[Animal]
-      animal.elementsNumber returns 5
-      animal.elementsCapacity returns 6
+      animal.canAdapt returns true
       val animalType = Mammal
       val game = mock[Game]
       game.animals returns Map(Mammal -> animal)
@@ -41,8 +40,7 @@ class AdaptationActionSpec extends SpecificationWithJUnit with Mockito {
       val initiativeHandler = new AdaptationActionHandler
 
       val animal = mock[Animal]
-      animal.elementsNumber returns 6
-      animal.elementsCapacity returns 6
+      animal.canAdapt returns false
       val animalType = Mammal
       val game = mock[Game]
       game.animals returns Map(Mammal -> animal)
@@ -66,8 +64,7 @@ class AdaptationActionSpec extends SpecificationWithJUnit with Mockito {
         animalManager, boardElementManager)
 
       val animal = mock[Animal]
-      animal.elementsNumber returns 5
-      animal.elementsCapacity returns 6
+      animal.canAdapt returns true
       val animalType = Mammal
       val gameId = GameId(123L)
       val game = mock[Game]

@@ -16,7 +16,7 @@ class AdaptationActionHandler extends ActivityHandler {
   override def execute(game: Game, animalType: AnimalType) = {
     game.animals.get(animalType) match {
       case Some(animal) => {
-        if (animal.elementsNumber < animal.elementsCapacity) {
+        if (animal.canAdapt) {
           val nextAction = classOf[SelectAdaptationActionHandler]
           Some(SelectAdaptationRequest(nextAction))
         } else {
@@ -37,9 +37,7 @@ class SelectAdaptationActionHandler(
   override def execute(game: Game, animalType: AnimalType, selected: ElementType) = {
     game.animals.get(animalType) match {
       case Some(animal) => {
-        val animalCanAddapt = animal.elementsNumber < animal.elementsCapacity
-        val elementExists = game.adaptationElements.getOrElse(selected, 0) > 0
-        if (animalCanAddapt && elementExists) {
+        if (animal.canAdapt && game.adaptationElements.getOrElse(selected, 0) > 0) {
           animalManager.addElement(game.id, animalType, selected)
           boardElementManager.removeAdaptationElement(game.id, selected)
         } else {
